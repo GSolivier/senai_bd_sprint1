@@ -1,0 +1,26 @@
+--Criação da database
+CREATE DATABASE Exercicio1_1;
+
+USE Exercicio1_1;
+
+CREATE TABLE Pessoas
+(
+	IdPessoa INT PRIMARY KEY IDENTITY,
+	Nome VARCHAR(100) NOT NULL,
+	CNH VARCHAR(11) NOT NULL
+
+);
+
+CREATE TABLE Email
+(
+	IdEmail INT PRIMARY KEY IDENTITY,
+	IdPessoa INT FOREIGN KEY REFERENCES Pessoas(IdPessoa),
+	Endereco VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE Telefone
+(
+	IdTelefone INT PRIMARY KEY IDENTITY,
+	IdPessoa INT FOREIGN KEY REFERENCES Pessoas(IdPessoa),
+	NumeroTelefone VARCHAR(30) NOT NULL
+);
